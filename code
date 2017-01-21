@@ -1,0 +1,250 @@
+#include <iostream>
+#include <cstdlib>
+#include <limits>
+#include <ctime>
+#include <string>
+#include <iomanip>
+
+using namespace std;
+
+int getUserChoice(int playerChoice, int const ROCK, int const PAPER, int const SCISSOR, int const LIZARD, int const SPOCK);
+int getComputerChoice(int computerChoice, int const ROCK, int const PAPER, int const SCISSOR, int const LIZARD, int const SPOCK);
+void displayChoice (int computerChoice, int playerChoice, int const ROCK, int const PAPER, int const SCISSOR, int const LIZARD, int const SPOCK);
+void determintWinner (int computerChoice, int playerChoice, int const ROCK, int const PAPER, int const SCISSOR, int const LIZARD, int const SPOCK);
+
+int main()
+{
+
+    int const ROCK = 1, PAPER = 2, SCISSOR = 3, LIZARD = 4, SPOCK = 5;
+    int playerChoice, computerChoice;
+    bool winner = false;
+    while(winner != true)
+
+    {
+    computerChoice = getComputerChoice(computerChoice, ROCK, PAPER, SCISSOR, LIZARD, SPOCK);
+    playerChoice = getUserChoice(playerChoice, ROCK, PAPER, SCISSOR, LIZARD, SPOCK);
+    displayChoice (computerChoice, playerChoice, ROCK, PAPER, SCISSOR, LIZARD, SPOCK);
+    determintWinner(computerChoice, playerChoice, ROCK, PAPER, SCISSOR,  LIZARD, SPOCK);
+
+    if(playerChoice != computerChoice)
+    {
+        winner = true;
+    }
+
+    }
+    system("pause");
+    return 0;
+}
+
+int getUserChoice(int playerChoice,int const ROCK,int const PAPER,int const SCISSOR, int const LIZARD, int const SPOCK)
+{
+
+cout << "Please make a choice" << endl;
+cout << "1.Rock." << endl;
+cout << "2.Paper." << endl;
+cout << "3.Scissor." << endl;
+cout << "4.Lizard." << endl;
+cout << "5.Spock." << endl;
+
+bool loopFlag = true;
+do
+{
+    cin >> playerChoice;
+
+    if ((cin.fail()) || playerChoice < 1 || playerChoice > 5)
+
+    {
+        cout << "You must enter a number that starts from 1 to 5." << endl;
+
+        cin.clear();
+        cin.ignore(std::numeric_limits<std::streamsize>::max(),'\n');
+
+    }
+    else
+    {
+        loopFlag = false;
+    }
+} while (loopFlag);
+
+
+return playerChoice;
+}
+int getComputerChoice(int computerChoice, int const ROCK, int const PAPER, int const SCISSOR, int const LIZARD, int const SPOCK)
+{
+rand();
+srand(time(0));
+int choice = (rand() % 5) + 1;
+computerChoice = choice;
+return computerChoice;
+}
+
+void displayChoice (int computerChoice, int playerChoice, int const ROCK, int const PAPER, int const SCISSOR, int const LIZARD, int const SPOCK)
+{
+    if(computerChoice == 1)
+    {
+          cout << "Computer Picked Rock. " << endl;
+    }
+    else
+          if( computerChoice == 2)
+    {
+          cout << "Computer Picked Paper. " << endl;
+    }
+    else
+         if( computerChoice == 3)
+    {
+          cout << "Computer Picked Scissor. " << endl;
+    }
+    else
+            if( computerChoice == 4)
+            {
+          cout << "Computer Picked Lizard. " << endl;
+            }
+            else
+            {
+          cout << "Computer Picked Spock. " << endl;
+            }
+
+    if(playerChoice == 1)
+    {
+        cout << "Player Picked Rock." << endl;
+
+    }
+    else
+        if(playerChoice == 2)
+    {
+        cout << "Player Picked Paper." << endl;
+    }
+    else
+           if(playerChoice == 3)
+    {
+        cout << "Player Picked Scissor." << endl;
+    }
+   else
+           if(playerChoice == 4)
+    {
+        cout << "Player Picked Lizard." << endl;
+    }
+    else
+
+    {
+        cout << "Player Picked Spock." << endl;
+    }
+
+}
+void determintWinner (int computerChoice, int playerChoice, int const ROCK, int const PAPER, int const SCISSOR, int const LIZARD, int const SPOCK)
+{
+if(playerChoice == 1 && computerChoice == 3)
+{
+    cout << "Player Wins!!!" << endl;
+}
+else
+    if(computerChoice == 1 && playerChoice == 3)
+{
+
+    cout << "Computer Wins!!!" << endl;
+}
+else
+    if(playerChoice == 3 && computerChoice == 2)
+{
+    cout << "Player Wins!!!" << endl;
+}
+else
+    if(computerChoice == 3 && playerChoice == 2)
+{
+
+    cout << "Computer Wins!!!" << endl;
+}
+else
+    if(playerChoice == 1 && computerChoice == 4)
+{
+    cout << "Player Wins!!!" << endl;
+}
+else
+    if(computerChoice == 1 && playerChoice == 4)
+{
+
+    cout << "Computer Wins!!!" << endl;
+}
+else
+    if(playerChoice == 2 && computerChoice == 1)
+{
+    cout << "Player Wins!!!" << endl;
+}
+else
+    if(computerChoice == 2 && playerChoice == 1)
+{
+
+    cout << "Computer Wins!!!" << endl;
+}
+else
+    if(playerChoice == 4 && computerChoice == 5)
+{
+    cout << "Player Wins!!!" << endl;
+}
+else
+    if(computerChoice == 4 && playerChoice == 5)
+{
+
+    cout << "Computer Wins!!!" << endl;
+}
+else
+    if(playerChoice == 5 && computerChoice == 3)
+{
+    cout << "Player Wins!!!" << endl;
+}
+else
+    if(computerChoice == 5 && playerChoice == 3)
+{
+
+    cout << "Computer Wins!!!" << endl;
+}
+else
+   if(playerChoice == 3 && computerChoice == 4)
+{
+    cout << "Player Wins!!!" << endl;
+}
+else
+    if(computerChoice == 3 && playerChoice == 4)
+{
+
+    cout << "Computer Wins!!!" << endl;
+}
+else
+    if(playerChoice == 4 && computerChoice == 2)
+{
+    cout << "Player Wins!!!" << endl;
+}
+else
+    if(computerChoice == 4 && playerChoice == 2)
+{
+
+    cout << "Computer Wins!!!" << endl;
+}
+else
+    if(playerChoice == 2 && computerChoice == 5)
+{
+    cout << "Player Wins!!!" << endl;
+}
+else
+    if(computerChoice == 2 && playerChoice == 5)
+{
+
+    cout << "Computer Wins!!!" << endl;
+}
+else
+if(playerChoice==5 && computerChoice==1)
+{
+    cout << "Player Wins!!!" << endl;
+}
+else
+    if(computerChoice == 5 && playerChoice == 1)
+{
+
+    cout << "Computer Wins!!!" << endl;
+}
+else
+    if(playerChoice == computerChoice)
+{
+    cout << "Tie!!!" << endl;
+}
+}
